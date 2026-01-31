@@ -1,0 +1,15 @@
+{
+  "name": "recap-backend",
+  "version": "0.1.0",
+  "main": "dist/gmail.service.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "googleapis": "^171.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.1.0",
+    "typescript": "^5"
+  }
+}
