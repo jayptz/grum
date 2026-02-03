@@ -1,65 +1,103 @@
-import Image from "next/image";
+"use client";
+
+import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
+import { FloatingDock } from "@/components/ui/floating-dock";
+import { Mail, FileText, Calendar, Settings, BarChart, Users } from "lucide-react";
+
+const dockItems = [
+  { title: "Email", icon: <Mail className="h-5 w-5 text-neutral-600 dark:text-neutral-300" />, href: "#" },
+  { title: "Documents", icon: <FileText className="h-5 w-5 text-neutral-600 dark:text-neutral-300" />, href: "#" },
+  { title: "Calendar", icon: <Calendar className="h-5 w-5 text-neutral-600 dark:text-neutral-300" />, href: "#" },
+  { title: "Analytics", icon: <BarChart className="h-5 w-5 text-neutral-600 dark:text-neutral-300" />, href: "#" },
+  { title: "Team", icon: <Users className="h-5 w-5 text-neutral-600 dark:text-neutral-300" />, href: "#" },
+  { title: "Settings", icon: <Settings className="h-5 w-5 text-neutral-600 dark:text-neutral-300" />, href: "#" },
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="min-h-screen bg-white dark:bg-black">
+      <div className="mx-auto max-w-7xl p-8 pb-24">
+        <div className="mb-8">
+          <h1 className="text-4xl font-bold text-black dark:text-white mb-2">Welcome</h1>
+          <p className="text-neutral-500 dark:text-neutral-400">Explore your options below</p>
+        </div>
+        <BentoGrid>
+          <BentoCard
+            name="Email Management"
+            description="Manage and organize your emails efficiently with our powerful email tools."
+            href="#"
+            cta="View Emails"
+            Icon={Mail}
+            className="col-span-3 lg:col-span-1"
+            background={
+              <div className="absolute inset-0 bg-gradient-to-br from-neutral-200/80 to-neutral-100/80 dark:from-neutral-800/80 dark:to-neutral-900/80" />
+            }
+          />
+          <BentoCard
+            name="Documents"
+            description="Access and manage all your documents in one place with smart organization."
+            href="#"
+            cta="Open Documents"
+            Icon={FileText}
+            className="col-span-3 lg:col-span-1"
+            background={
+              <div className="absolute inset-0 bg-gradient-to-br from-neutral-300/60 to-neutral-200/60 dark:from-neutral-700/60 dark:to-neutral-800/60" />
+            }
+          />
+          <BentoCard
+            name="Calendar"
+            description="Stay organized with your schedule and never miss an important event."
+            href="#"
+            cta="View Calendar"
+            Icon={Calendar}
+            className="col-span-3 lg:col-span-1"
+            background={
+              <div className="absolute inset-0 bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-900 dark:to-neutral-800" />
+            }
+          />
+          <BentoCard
+            name="Analytics"
+            description="Get insights into your productivity and track your progress over time."
+            href="#"
+            cta="View Analytics"
+            Icon={BarChart}
+            className="col-span-3 lg:col-span-2"
+            background={
+              <div className="absolute inset-0 bg-gradient-to-br from-neutral-200/70 to-neutral-300/70 dark:from-neutral-800/70 dark:to-neutral-700/70" />
+            }
+          />
+          <BentoCard
+            name="Team"
+            description="Collaborate with your team members and manage shared resources."
+            href="#"
+            cta="View Team"
+            Icon={Users}
+            className="col-span-3 lg:col-span-1"
+            background={
+              <div className="absolute inset-0 bg-gradient-to-br from-neutral-100 to-neutral-300/50 dark:from-neutral-900/90 dark:to-neutral-700/50" />
+            }
+          />
+          <BentoCard
+            name="Settings"
+            description="Customize your experience and configure application preferences."
+            href="#"
+            cta="Open Settings"
+            Icon={Settings}
+            className="col-span-3 lg:col-span-1"
+            background={
+              <div className="absolute inset-0 bg-gradient-to-br from-neutral-300/50 to-neutral-400/50 dark:from-neutral-700/50 dark:to-neutral-600/50" />
+            }
+          />
+        </BentoGrid>
+      </div>
+
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+        <FloatingDock
+          items={dockItems}
+          desktopClassName="bg-white/90 dark:bg-neutral-900/90 backdrop-blur-xl border border-neutral-200/80 dark:border-neutral-800 shadow-lg shadow-neutral-900/10"
+          mobileClassName="fixed bottom-6 right-6 z-50"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </div>
     </div>
   );
 }
