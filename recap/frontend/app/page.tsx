@@ -61,7 +61,7 @@ export default function Home() {
             href="#"
             cta="View Analytics"
             Icon={BarChart}
-            className="col-span-3 lg:col-span-2"
+            className="col-span-3 lg:col-span-1"
             background={
               <div className="absolute inset-0 bg-gradient-to-br from-neutral-200/70 to-neutral-300/70 dark:from-neutral-800/70 dark:to-neutral-700/70" />
             }
